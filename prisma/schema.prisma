@@ -1,0 +1,60 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model shop {
+  shopname                    String              @id @db.VarChar(255)
+  accesstoken                 String              @unique @db.VarChar(255)
+  id                          String?
+  name                        String?             @db.VarChar(255)
+  email                       String?             @db.VarChar(255)
+  domain                      String?             @db.VarChar(255)
+  country                     String?             @db.VarChar(255)
+  shop_owner                  String?             @db.VarChar(255)
+  myshopify_domain            String?             @db.VarChar(256)
+  deleted                     Boolean             @default(false)
+}
+
+model AppSession {
+  id      String @id
+  payload Json
+  @@map("app_session")
+}
+
+model installedshop {
+  id                          Int                 @id @default(autoincrement())
+  shop                        String              @unique @db.VarChar(255)
+}
+
+model activetheme {
+  shop                        String              @id @db.VarChar(255)
+  theme_id                    String            @db.VarChar(250)
+}
+
+model appSettings {
+  shop                        String            @id @db.VarChar(250)
+  settings                    String            @db.Text
+}
+
+model accessDetails {
+  shop                        String            @id @db.VarChar(250)
+  token                       String            @db.VarChar(255)
+}
+
+model activeStatus {
+  shop                        String            @id @db.VarChar(250)
+  status                      String            @db.VarChar(255)
+}
+
+model activePlans {
+  shop                        String            @id @db.VarChar(250)
+  data                        String            @db.Text
+}

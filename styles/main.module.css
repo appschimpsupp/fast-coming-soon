@@ -1,0 +1,12 @@
+.PolarisPage60TopPadding {
+    padding-top: 60px;
+}
+.PolarisPageNoTopPadding {
+    padding-top: 0;
+}
+.DisplayNone {
+    display: none;
+}
+.DisplayBlock {
+    display: block;
+}

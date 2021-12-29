@@ -1,0 +1,10 @@
+.Polaris-Frame {
+    min-height: 10px;
+}
+.uploadcare--widget__button, 
+.uploadcare--button_primary {
+    background: #006E52 !important;
+    background-color: #006E52 !important;
+    border-color: #006E52 !important;
+    box-shadow: none !important;
+}

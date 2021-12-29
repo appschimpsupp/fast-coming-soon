@@ -1,0 +1,281 @@
+<!DOCTYPE HTML>
+<html lang="en">
+   <head>
+	 
+	<% if (data.seoTitle) { %>
+		<title><%= data.seoTitle %></title>
+	<% } else { %>
+		<title>Coming Soon</title>
+	<% } %>
+
+	<% if (data.seoMetatags) { %>
+		<meta name="keywords" content="<%= data.seoMetatags %>">
+	<% } %>
+	
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <meta charset="UTF-8">
+	<% if (data.seoDescription) { %>
+		<meta name="description" content="<%= data.seoDescription %>">
+	<% } else { %>
+		<meta name="description" content="<%= shop %>">
+	<% } %>
+
+	<style id="" media="all">
+		/* Background */
+		.left-section {
+			/* Set background color */
+			<% if(data.backgroundColorStatus == true) { %>
+				background-color: hsl(<%= data.backgroundColor.hue %>, <%= data.backgroundColor.saturation * 100 %>%, <%= data.backgroundColor.brightness * 100 %>%);
+			<% } else { %>
+				background-color: #000000;
+			<% } %>
+
+			<% if (data.backgroundUrl && data.backgroundColorStatus != true ) { %>
+				background-image: url(<%= data.backgroundUrl %>)
+			<% } else if (data.backgroundColorStatus != true)  { %>
+				background-image: url('https://ucarecdn.com/304cf8d2-cc23-4af7-ab1e-d2a386c14ea1/bgmain4.jpg');
+			<% } %>
+		}
+
+		.right-section {
+			/* Set background color */
+			<% if(data.backgroundColor) { %>
+				background-color:  hsl(<%= data.backgroundColor.hue %>, <%= data.backgroundColor.saturation * 100 %>%, <%= data.backgroundColor.brightness * 100 %>%);
+			<% } else { %>
+				background-color: #000000;
+			<% } %>
+		}
+
+		body {
+			/* Set background color */
+			<% if(data.backgroundColorStatus == true) { %>
+				background-color: hsl(<%= data.backgroundColor.hue %>, <%= data.backgroundColor.saturation * 100 %>%, <%= data.backgroundColor.brightness * 100 %>%);
+			<% } else { %>
+				background-color: #cecece;
+			<% } %>
+		}
+
+		.right-section .logo {
+			height: 50px!important;
+		}
+		/*** Social Icons Styling ***/
+		.social-icons {
+			text-align: left;
+			position: absolute;
+			bottom: 45px;
+		}
+		.footer-content {
+			position: absolute;
+			bottom: 10px;
+			padding-left: 7px;
+		}
+		.social-icons a:nth-child(1) {
+			margin-left: 0;
+		}
+		.icon-link .fa {
+			color: #fff;
+			font-size: 22px;
+		}
+		.icon-link.fill.facebook {
+			background-color: #3b5998;
+		}
+		.icon-link.fill.linkedin {
+			background-color: #007bb6;
+		}
+		.icon-link.fill.twitter {
+			background-color: #00aced;
+		}
+		.icon-link.fill.google-plus {
+			background-color: #dd4b39;
+		}
+		.icon-link.fill.youtube {
+			background-color: #df1c31;
+		}
+		.icon-link.fill.pinterest {
+			background-color: #b81621;
+		}
+		.icon-link.fill.envelope {
+			background-color: #333;
+		}
+		.icon-link.round {
+			border-radius: 50%;
+		}
+		.icon-link {
+			width: 45px;
+			height: 45px;
+			background-color: #666;
+			line-height: 51px;
+			text-align: center;
+			vertical-align: middle;
+			display: inline-block;
+			cursor: pointer;
+			outline: none;
+			margin: 5px;
+			box-sizing: content-box;
+			transition: transform .2s; /* Animation */
+		}
+		.icon-link:hover {
+			transform: scale(1.2); 
+		}
+		#timer {
+			text-align: left;
+			margin-bottom: 20px;
+			margin-top: 20px;
+		}
+		#timer div {
+			display: inline-block;
+			line-height: 1;
+			padding: 20px;
+			font-size: 40px;
+		}
+		#timer span {
+			display: block;
+			font-size: 20px;
+			color: white;
+		}
+		#days {
+			font-size: 100px;
+			color: #ffffff;
+			padding-left: 0!important;
+		}
+		#hours {
+			font-size: 100px;
+			color: #ffffff;
+		}
+		#minutes {
+			font-size: 100px;
+			color: #ffffff;
+		}
+		#seconds {
+			font-size: 50px;
+			color: #ffffff;
+		}
+	</style>
+    <link href="https://ucarecdn.com/727e0877-3006-4330-8ce0-f6ee516b161c/ionicons.css"   rel="stylesheet">
+    <link href="https://ucarecdn.com/78bee593-96f0-4fd7-aebb-057576e81aeb/styles.css"     rel="stylesheet">
+    <link href="https://ucarecdn.com/b0240eff-fb1e-4d8e-97ca-de21508e8548/responsive.css" rel="stylesheet">
+   </head>
+   <body>
+      <div class="main-area">
+         <section class="left-section" ></section>
+         <section class="right-section full-height">
+			 <!-- Logo Section -->
+			<% if (data.logoUrl) { %>
+            	<a class="logo" href="#"><img src="<%= data.logoUrl %>" alt="Logo"></a>
+			<% } %>
+            <div class="display-table">
+               <div class="display-table-cell">
+                  <div class="main-content">
+					  <!-- Title Section -->
+					<% if (data.contentTitle) { %>
+						<h1 class="title"><b><%= data.contentTitle %></b></h1>
+					<% } else { %>
+						<h1>Coming Soon</h1>
+					<% } %>
+                     <!-- Description Section -->
+					<% if (data.contentDescription) { %>
+						<p class="desc"><%= data.contentDescription %></p>
+					<% } else { %>
+						<p class="desc">Our website is currently undergoing scheduled maintenance. We Should be back shortly. Thank you for your patience.</p>
+					<% } %>
+
+                     <!-- Timer -->
+					<% if (data.timerStatus && data.timerDate) { %>
+						<div id="timer">
+							<div id="days"></div>
+							<div id="hours"></div>
+							<div id="minutes"></div>
+							<div id="seconds"></div>
+						</div>
+					<% } %>
+
+					<!-- Social Icons block -->
+					<% if (data.socialStatus) { %>
+						<div class="social-icons">
+							<% if (data.socialFacebook) { %>
+								<a target="_blank" href="<%= data.socialFacebook %>" class="icon-link round facebook fill"><i class="fa fa-facebook"></i></a>
+							<% } %>
+
+							<% if (data.socialLinkedIn) { %>
+								<a target="_blank" href="<%= data.socialLinkedIn %>" class="icon-link round linkedin fill"><i class="fa fa-linkedin"></i></a>
+							<% } %>
+
+							<% if (data.socialTwitter) { %>
+								<a target="_blank" href="<%= data.socialTwitter %>" class="icon-link round twitter fill"><i class="fa fa-twitter"></i></a>
+							<% } %>
+
+							<% if (data.socialGooglePlus) { %>
+								<a target="_blank" href="<%= data.socialGooglePlus %>" class="icon-link round google-plus fill"><i class="fa fa-google-plus"></i></a>
+							<% } %>
+
+							<% if (data.socialYoutube) { %>
+								<a target="_blank" href="<%= data.socialYoutube %>" class="icon-link round youtube fill"><i class="fa fa-youtube"></i></a>
+							<% } %>
+
+							<% if (data.socialPinterest) { %>
+								<a target="_blank" href="<%= data.socialPinterest %>" class="icon-link round pinterest fill"><i class="fa fa-pinterest"></i></a>
+							<% } %>
+
+							<% if (data.socialEmail) { %>
+								<a href="mailto:<%= data.socialEmail %>" class="icon-link round envelope fill"><i class="fa fa-envelope"></i></a>
+							<% } %>
+						</div>
+					<% } %>
+					<!-- Footer content -->
+					<% if (data.contentFooter) { %>
+						<span class="footer-content"><%= data.contentFooter %></span>
+					<% } else { %>
+						<span class="footer-content">Copyright © 2021. All Rights Reserved.</span>
+					<% } %>
+                  </div>
+               </div>
+            </div>
+		
+         </section>
+      </div>
+
+
+      <script src="https://ucarecdn.com/598d3815-7518-41f9-95c6-3579086fa650/jquery311min.js"></script>
+      <script src="https://ucarecdn.com/81d64856-90eb-4483-b674-f76de060c0b7/scripts.js"></script>
+	  <script src="https://kit.fontawesome.com/a5f2ce3ffd.js" crossorigin="anonymous"></script>
+	  <script type="text/javascript" src="https://ucarecdn.com/53e6cd79-aced-4659-87cc-b2f4fc6851ea/jquerycountdown.js"></script>
+
+	  
+	  <!-- Set Timer -->		
+	  <% if (data.timerStatus && data.timerDate) { %>
+		<script>
+			$( function() {
+			// Create timer.
+			function makeTimer() {
+				//		var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");	
+				var endTime = new Date("<%= data.timerDate %>");			
+				endTime = (Date.parse(endTime) / 1000);
+
+				var now = new Date();
+				now = (Date.parse(now) / 1000);
+
+				var timeLeft = endTime - now;
+
+				var days = Math.floor(timeLeft / 86400); 
+				var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+				var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+				var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+				if (hours < "10") { hours = "0" + hours; }
+				if (minutes < "10") { minutes = "0" + minutes; }
+				if (seconds < "10") { seconds = "0" + seconds; }
+
+				$("#days").html(days + "<span>Days</span>");
+				$("#hours").html(hours + "<span>Hours</span>");
+				$("#minutes").html(minutes + "<span>Minutes</span>");
+				$("#seconds").html(seconds + "<span>Seconds</span>");		
+			}
+
+			setInterval(function() { makeTimer(); }, 1000);
+			//makeTimer();
+			});
+	</script>
+<% } %>
+   </body>
+</html>
