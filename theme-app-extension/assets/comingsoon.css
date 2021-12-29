@@ -1,50 +1,45 @@
-#loader {
-    position: absolute;
-    left: 50%;
-    top: 50%;
-    z-index: 1;
-    width: 120px;
-    height: 120px;
-    margin: -76px 0 0 -76px;
-    border: 6px solid #848484;
-    border-radius: 50%;
-    border-top: 14px solid #848484;
-    -webkit-animation: spin 2s linear infinite;
-    animation: spin 2s linear infinite;
-    display: block!important;
-  }
-  body * {
+body * {
     display: none;
 }
 body div#loader {
     display: block!important;
 }
-  @-webkit-keyframes spin {
-    0% { -webkit-transform: rotate(0deg); }
-    100% { -webkit-transform: rotate(360deg); }
+@keyframes rotate {
+  from {
+      transform: rotate(0deg);
   }
-  
-  @keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+  to { 
+      transform: rotate(360deg);
   }
-  
-  /* Add animation to "page content" */
-  .animate-bottom {
-    position: relative;
-    -webkit-animation-name: animatebottom;
-    -webkit-animation-duration: 1s;
-    animation-name: animatebottom;
-    animation-duration: 1s
+}
+
+
+@-webkit-keyframes rotate {
+  from {
+      -webkit-transform: rotate(0deg);
   }
-  
-  @-webkit-keyframes animatebottom {
-    from { bottom:-100px; opacity:0 } 
-    to { bottom:0px; opacity:1 }
+  to { 
+      -webkit-transform: rotate(360deg);
   }
-  
-  @keyframes animatebottom { 
-    from{ bottom:-100px; opacity:0 } 
-    to{ bottom:0; opacity:1 }
-  }
-  
+}
+
+#loader {
+width: 100px;
+height: 100px;
+margin: 110px auto 0;
+border:solid 8px #848484;
+border-radius: 50%;
+border-right-color: transparent;
+border-bottom-color: transparent;
+ -webkit-transition: all 0.5s ease-in;
+  -webkit-animation-name:             rotate; 
+  -webkit-animation-duration:         1.0s; 
+  -webkit-animation-iteration-count:  infinite;
+  -webkit-animation-timing-function: linear;
+    
+     transition: all 0.5s ease-in;
+  animation-name:             rotate; 
+  animation-duration:         1.0s; 
+  animation-iteration-count:  infinite;
+  animation-timing-function: linear; 
+}
