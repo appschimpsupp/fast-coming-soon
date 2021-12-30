@@ -295,7 +295,7 @@ export default function Index() {
         action={
           {
             content: 'Check Screenshot Here', 
-            url: '#',
+            url: 'https://ucarecdn.com/8337d3a2-7073-409d-ba68-54e4bb4d7217/',
             target: '_blank'
           }
         }
