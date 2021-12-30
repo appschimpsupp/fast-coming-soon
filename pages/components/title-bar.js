@@ -6,7 +6,7 @@ const TitleBarApp = (props) => {
 
     //const dashboardButton = Button.create(app, { label: 'Dashboard' });
     const faqButton = Button.create(app, { label: 'FAQ' });
-    const uninstallButton = Button.create(app, { label: 'Uninstall Instructions' });
+    const uninstallButton = Button.create(app, { label: 'Install Instructions' });
     //const installButton = Button.create(app, { label: 'Install Instructions' });
     const support = Button.create(app, { label: 'Get Support' });
     
@@ -23,7 +23,7 @@ const TitleBarApp = (props) => {
     // Uninstall link.
     uninstallButton.subscribe('click', () => {
         redirect.dispatch(Redirect.Action.REMOTE, {
-        url: 'https://appschimp.com/uninstall-instructions/',
+        url: 'https://appschimp.com/install-instructions/',
         newContext: true,
         });
     });
