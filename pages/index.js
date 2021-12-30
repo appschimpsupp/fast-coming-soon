@@ -291,7 +291,7 @@ export default function Index() {
     const infoBanner = activeSettings == 0 ? 
       <div>
         <Banner
-        title="To enable Fast Coming Soon click button (Click Here To Activate Or Deactivate Coming Soon Page)"
+        title="To enable Fast Coming Soon click button (Click Here To Activate Or Deactivate Coming Soon Page) ☝"
         action={
           {
             content: 'Check Screenshot Here', 
