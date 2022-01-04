@@ -68,7 +68,7 @@ const data = {
             title: "How can I select theme?",
             content: 
             <div>
-                <p>You can publish from app settings page. Check the screenshot below:</p>
+                <p>You can publish from from app Dashboard page. Check the screenshot below:</p>
                 <img src="https://ucarecdn.com/e11fa0d2-d3e7-420d-a821-c7e7ee9a2f2a/selecttheme.png" />
             </div>,
         },
