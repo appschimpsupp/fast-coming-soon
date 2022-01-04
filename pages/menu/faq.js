@@ -117,7 +117,7 @@ const Faqs = (props) => {
                     config={config}
                 />
                 <br />
-                <p>If you still aren't able to resolve the issue, you can send us an email at appschimpsupp@gmail.com</p>
+                <strong>If you still aren't able to resolve the issue, you can send us an email at appschimpsupp@gmail.com</strong>
             </div>
         </Page>
     );
