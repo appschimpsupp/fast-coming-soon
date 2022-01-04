@@ -10,6 +10,9 @@ import AuthenticateRequest from './components/authenticate-request';
 import { useRouter } from "next/router";
 import { useAppBridge } from '@shopify/app-bridge-react';
 import TitleBarApp from './components/title-bar';
+import Faqs from './menu/faq';
+import Support from './menu/get-support';
+import InstallInstruction from './menu/install-instructions';
 import { Redirect } from '@shopify/app-bridge/actions';
 
 export default function Index() {
@@ -30,6 +33,7 @@ export default function Index() {
     });
   }
 
+  const [currPage, setCurrPage] = useState('dashboard');
   const [planCheck, setPlanCheck] = useState(false);
   const [shop, setShop] = useState(router.query.shop);
   const [activeTheme, setActiveTheme] = useState(0);
@@ -68,8 +72,6 @@ export default function Index() {
    });
 
   }, []);
-
-
 
   //console.log('Front Shop : ' + router.query.shop);
   /**
@@ -306,45 +308,62 @@ export default function Index() {
       <br />
     </div> : '';
 
+    // Update current page.
+    const setCurrPageHandler = (page) => {
+      setCurrPage(page);
+    }
+
+    var pageOutput = '';
+    
+    // Decide page.
+    if(currPage == 'dashboard') {
+      pageOutput = 
+        <Page
+            narrowWidth={false}
+            divider={true}
+            title="Enable/Disable Fast Coming Soon"
+            primaryAction={
+              {
+                content: 'Click Here To Enable Or Disable Coming Soon Page', 
+                loading: activationStatusBtn,
+                onAction: () => { 
+                  //activationStatusHandler()
+                  const redirect = Redirect.create(app);
+                  redirect.dispatch(Redirect.Action.REMOTE, {
+                    url: "https://"+shop+"/admin/themes/current/editor?context=apps&activateAppId="+appExtUID+"/fast-coming-soon",
+                    newContext: true,
+                  });
+                }
+              }
+            }
+          >
+          {infoBanner}
+            <Frame> 
+              <Layout>
+                {/* Password enabled notification component */}
+                <Layout.Section> 
+                  <Password shopData={shopData} shop={shop} /> 
+                </Layout.Section>
+                {/* Callout component to show 'Customize Your Coming Soon Page' */}
+                <Layout.Section>
+                  {customSettings}
+                </Layout.Section>
+              </Layout>
+              <ToastHandler toastMsg={toastMsg} toastStatus={toastStatus} handleToastStatus={handleToastStatus} />
+            </Frame>
+        </Page>;
+    } else if(currPage == 'faq') {
+      pageOutput = <Faqs setCurrPageHandler={setCurrPageHandler} />;
+    } else if(currPage == 'install') {
+      pageOutput = <InstallInstruction setCurrPageHandler={setCurrPageHandler} />;
+    } else if(currPage == 'support') {
+      pageOutput = <Support setCurrPageHandler={setCurrPageHandler} />;
+    }
+    
   return (
     <div className={pageCss} style={{'display': cssPlanCheck }}> 
-      <TitleBarApp app={app} cssPlanCheck={cssPlanCheck} />
-
-      <Page
-        narrowWidth={false}
-        divider={true}
-        title="Enable/Disable Fast Coming Soon"
-        primaryAction={
-          {
-            content: 'Click Here To Enable Or Disable Coming Soon Page', 
-            loading: activationStatusBtn,
-            onAction: () => { 
-              //activationStatusHandler()
-              const redirect = Redirect.create(app);
-              redirect.dispatch(Redirect.Action.REMOTE, {
-                url: "https://"+shop+"/admin/themes/current/editor?context=apps&activateAppId="+appExtUID+"/fast-coming-soon",
-                newContext: true,
-              });
-            }
-          }
-        }
-      >
-      {infoBanner}
-        <Frame> 
-          <Layout>
-            {/* Password enabled notification component */}
-            <Layout.Section> 
-              <Password shopData={shopData} shop={shop} /> 
-            </Layout.Section>
-            {/* Callout component to show 'Customize Your Coming Soon Page' */}
-            <Layout.Section>
-              {customSettings}
-            </Layout.Section>
-          </Layout>
-          <ToastHandler toastMsg={toastMsg} toastStatus={toastStatus} handleToastStatus={handleToastStatus} />
-        </Frame>
-    </Page>
-   
+      <TitleBarApp app={app} cssPlanCheck={cssPlanCheck} setCurrPageHandler={setCurrPageHandler} />
+      {pageOutput}
   </div>
   );
 }

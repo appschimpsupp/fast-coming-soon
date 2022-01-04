@@ -1,6 +1,14 @@
 {{ 'comingsoon.css' | asset_url | stylesheet_tag }}
 
 {% if request.design_mode != true %}
+        <style>
+          body * {
+            display: none;
+          }
+          body div#loader {
+            display: block!important;
+          }
+        </style>
         <div id="loader"></div>
         <script> 
             var url  = window.location.href;
