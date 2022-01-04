@@ -308,9 +308,12 @@ export default function Index() {
       <br />
     </div> : '';
 
-    // Update current page.
+    // Update page.
     const setCurrPageHandler = (page) => {
       setCurrPage(page);
+      if(page == 'dashboard') {
+        setActiveSettings(0);
+      }
     }
 
     var pageOutput = '';
