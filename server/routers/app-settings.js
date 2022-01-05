@@ -119,7 +119,7 @@ settingsRouter.get("/planCheck", async (ctx) => {
                 "trial_days": 7,
                 "price":0.99,
                 "return_url": returnUrl,
-                "test": false
+                "test": null
               }},
             type: DataType.JSON,
           });
