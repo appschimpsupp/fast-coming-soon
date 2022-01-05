@@ -119,7 +119,7 @@ app.prepare().then(async () => {
                 "trial_days": 7,
                 "price":0.99,
                 "return_url": returnUrl,
-                "test": true
+                "test": false
               }},
             type: DataType.JSON,
           });
