@@ -53,7 +53,7 @@ const data = {
                             Make sure that Coming Soon page setting is enabled from theme editor. Check above FAQ or follow screenshots below:
                         </p>
                         <img src="https://ucarecdn.com/384a861a-f92b-4efb-bd77-0aef728bd48e/apppage.png" />
-                        <img src="https://ucarecdn.com/d8b5c0ce-161c-49f6-ab4b-cb98f5aa1eea/enabledisablebutton.png" />
+                        <img src="https://ucarecdn.com/12ab5a55-c3a9-4072-adbd-fc0ffbcfc322/enabledisablebtn.png" />
                         <img src="https://ucarecdn.com/4df5f78f-1619-4d17-a0c3-8bf57dc66194/enabledisablethree.png" />
                     </li>
                     <li>
