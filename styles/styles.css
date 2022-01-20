@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css?family=Raleway|Baloo+Bhaijaan|Righteous|Acme|Oswald|Poppins|Comfortaa|Dosis|Roboto|Permanent+Marker|Open+Sans|Montserrat|Lato|Dancing+Script|Pacifico|Dokdo');
+
+
 .Polaris-Frame {
     min-height: 10px;
 }
@@ -8,3 +11,16 @@
     border-color: #006E52 !important;
     box-shadow: none !important;
 }
+.tox-tinymce { 
+    margin-top: -8px; 
+}
+.time-zone-selector { 
+    z-index: 99;
+}
+.time-zone-selector input {
+    background: transparent!important;
+}
+div[id*="lpform_react-select"] {
+    display: none;
+}
+  

@@ -8,7 +8,11 @@ const SeoSettings = (props) => {
         setSeoTitle, 
         setSeoDescription,
         seoMetatags,
-        setSeoMetatags
+        setSeoMetatags,
+        fbPixel,
+        setFbPixel,
+        googleAna,
+        setGoogleAna
     } = props;
 
     return (
@@ -25,6 +29,20 @@ const SeoSettings = (props) => {
                                     label="Site Title" 
                                     onChange={setSeoTitle} 
                                 />
+                                <FormLayout.Group>
+                                    <TextField 
+                                        label="Facebook Pixel" 
+                                        onChange={setFbPixel} 
+                                        autoComplete="off"
+                                        value={fbPixel}
+                                    />
+                                    <TextField 
+                                        label="Google Analytics" 
+                                        onChange={setGoogleAna} 
+                                        value={googleAna}
+                                        autoComplete="off" 
+                                    />
+                                </FormLayout.Group>
                                 <TextField 
                                     value={seoMetatags}
                                     label="Meta Tags" 

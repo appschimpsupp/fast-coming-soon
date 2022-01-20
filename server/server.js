@@ -11,6 +11,7 @@ import Router from "koa-router";
 import indexRouter from './routers/index';
 import { registerWebhook } from '@shopify/koa-shopify-webhooks';
 import { PrismaClient } from '@prisma/client';
+import { currentThemeData } from "../libs/default-vals";
 
 const render = require('koa-ejs'); // EJS template engine.
 const path = require('path');
@@ -110,7 +111,18 @@ app.prepare().then(async () => {
         
         if (response.success) {
           let returnUrl = process.env.HOST + '/afterSubscription?shop='+shop;
+          let testPaymentStatus = null;
           
+          // Development stores.
+          if(
+            shop == 'testcomingstore.myshopify.com' ||
+            shop == 'appschimpcomingsoondemo.myshopify.com' ||
+            shop == 'oldstore1.myshopify.com' ||
+            shop == 'testcomingsoonpage.myshopify.com'  
+          ) {
+            testPaymentStatus = true;
+          }
+
           const responseSubscription = await client.post({
             path: 'recurring_application_charges',
             data: {"recurring_application_charge": 
@@ -119,7 +131,7 @@ app.prepare().then(async () => {
                 "trial_days": 7,
                 "price":0.99,
                 "return_url": returnUrl,
-                "test": null
+                "test": testPaymentStatus
               }},
             type: DataType.JSON,
           });
@@ -272,12 +284,16 @@ app.prepare().then(async () => {
         formData = 'none';
         shop = 'none';
       }
-     
+      
+      let defaultOptions = currentThemeData(activeThemeID);
+
       await ctx.render(
         'theme-' + activeThemeID + '/index', 
         { 
           data : formData, 
-          shop: shop,
+          shop: shopObj,
+          defaultOptions:defaultOptions,
+          host: process.env.HOST
         }
       );
 

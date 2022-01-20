@@ -49,8 +49,8 @@ export default function Index() {
   // Axios Instance to authenticate session token.
   const axiosinstance = AuthenticateRequest();
   
-  /**
-   * Get Plan Check.
+  /** 
+   * Get Plan Check. 
    */
    let getPlanData = useCallback((_event) => {
     axiosinstance({ 
@@ -69,15 +69,15 @@ export default function Index() {
         redirectPlan(settingsData.data.confirmation_url);
       }
 
-   });
+   }); 
 
-  }, []);
+  }, []); 
 
-  //console.log('Front Shop : ' + router.query.shop);
+  //console.log(' Front Shop : ' + router.query.shop);
   /**
-   * Get app settings.
+   * Get app settings. 
    */
-  let getAppData = useCallback((_event) => {
+  let getAppData = useCallback((_event) => { 
     axiosinstance({
       method: 'get',
       url: '/getSettings',
@@ -85,10 +85,12 @@ export default function Index() {
         shop: router.query.shop
       }
     }).then(function (settingsData) {
-      //console.log('settingsData :- '+ settingsData);
+      // console.log('settingsData :- '+ JSON.stringify(settingsData));
       if(settingsData.data.data !== 'none') {
         let formData = JSON.parse(settingsData.data.data.settings);
         setAppSettings(formData);
+      } else {
+        setAppSettings({});
       }
 
    });
@@ -285,22 +287,22 @@ export default function Index() {
      // Prepare Skeleton Loader.
 
      let cssPlanCheck = 'none';
-
+ 
     if(planCheck == true) {
        cssPlanCheck = 'block';
     } 
-
+  
     const infoBanner = activeSettings == 0 ? 
-      <div>
-        <Banner
+      <div> 
+        <Banner 
         title="To enable Fast Coming Soon click button (Click Here To Activate Or Deactivate Coming Soon Page) ☝"
         action={
           {
-            content: 'Check Screenshot Here', 
+            content: 'Check Screenshot Here',  
             url: 'https://ucarecdn.com/8337d3a2-7073-409d-ba68-54e4bb4d7217/',
             target: '_blank'
           }
-        }
+        } 
         status="info"
       >
         <p>It will redirect you to theme editor and auto enable the Fast Coming Soon page block, <strong>you must click Save to publish theme editor settings.</strong></p>
