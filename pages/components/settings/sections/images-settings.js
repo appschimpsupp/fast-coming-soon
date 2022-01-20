@@ -13,16 +13,20 @@ const ImageSettings = (props) => {
         setBackgroundColorStatus,
         backgroundColor,
         setBackgroundColor,
+        favUrl,
+        setFavUrl,
         activeTheme
     } = props;
 
     const [loadImage, setLoadImage] = useState(0); // logo image loading.
     const [loadLogoImage, setLoadLogoImage] = useState(0); // background image loading.
+    const [loadFavImage, setLoadFavImage] = useState(0); // background image loading.
 
     let uploadCarePublicKey = '348cba60a37606ff251a';
 
     let logoPreviewStatus = (logoUrl != "") ? 'block' : 'none';
     let backgroundPreviewStatus = (backgroundUrl != "") ? 'block' : 'none';
+    let favPreviewStatus = (favUrl != "") ? 'block' : 'none';
 
     let backgroundColorLabel =  activeTheme == 2 ? 'If you select this option it will only show Background Color and hide image. You can select Right Area Color also.' : 'If you select this option it will only show Background Color and hide image.';
 
@@ -137,6 +141,52 @@ const ImageSettings = (props) => {
                                 onChange={setBackgroundColor} 
                                 color={backgroundColor}
                             />  
+                        </Card.Section>
+                        <Card.Section>
+                            <p> 
+                                <label htmlFor='background'>Upload Favicon:</label>{' '}
+                                <Widget 
+                                    clearable
+                                    publicKey={uploadCarePublicKey}
+                                    id='favicon' 
+                                    name='favicon'
+                                    tabs='file url'
+                                    previewStep='true'
+                                    value={favUrl}
+                                    onFileSelect={(file) => {
+                                        if (!file) {
+                                            setFavUrl('empty');
+                                        }
+                                        if (file) {
+                                            file.progress(info => {
+                                                setLoadFavImage(1);
+                                                //console.log('File progress: ', info.progress)
+                                               // setLoadImage(1);
+                                                if(info.progress == 1) {
+                                                    setLoadFavImage(0);
+                                                }
+                                            })
+                                            file.done(info => {
+                                                setFavUrl(info);
+                                                //console.log('File uploaded: ', info)
+                                            })
+                                          }
+                                    }}
+                                    onChange={
+                                        (e) => { 
+                                           // console.log(e);
+                                           // setBackgroundUrl(e);
+                                        }
+                                    }
+                                />
+                                { loadFavImage == 1 ? <span style={{textAlign:'left'}}><br /> <br /><Spinner size="small" /></span> : <img 
+                                src={favUrl ? favUrl+ '-/preview/200x200/' : ''}  
+                                className={styles.previewMargin}
+                                style={{display: backgroundPreviewStatus}} 
+                            /> }
+                                
+                                
+                            </p>
                         </Card.Section>
                     </Card>
                 </FormLayout>

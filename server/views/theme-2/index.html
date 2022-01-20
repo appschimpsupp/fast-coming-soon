@@ -22,6 +22,10 @@
 		<meta name="description" content="<%= shop %>">
 	<% } %>
 
+	<% if (data.favUrl) { %>
+		<link rel="icon" type="image" href="<%= data.favUrl %>">
+	<% } %>
+	
 	<link href="https://fonts.googleapis.com/css?family=Lobster|family=Raleway|Baloo+Bhaijaan|Righteous|Acme|Oswald|Poppins|Comfortaa|Dosis|Roboto|Permanent+Marker|Open+Sans|Montserrat|Lato|Dancing+Script|Pacifico|Dokdo" rel="stylesheet">
 
 	<% if (data.googleAna) { %>

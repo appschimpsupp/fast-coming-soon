@@ -40,6 +40,7 @@ const IndexSettings = (props) => {
     
     let timerDateVal = appSettings.timerDate ? new Date(appSettings.timerDate) : new Date();
     let logoUrlVal = appSettings.logoUrl ? appSettings.logoUrl : '';
+    let favUrlVal = appSettings.favUrl ? appSettings.favUrl : '';
     let backgroundUrlVal = appSettings.backgroundUrl ? appSettings.backgroundUrl : defaultData.backgroundUrl;
     let backgroundColorStatusVal = 
         appSettings.backgroundColorStatus ? appSettings.backgroundColorStatus : false;
@@ -116,6 +117,7 @@ const IndexSettings = (props) => {
     const [timerColor, setTimerColor] = useState(timerColorVal);
     
     const [logoUrl, setLogoUrl] = useState(logoUrlVal);
+    const [ favUrl, setFavUrl] = useState(favUrlVal);
     const [backgroundUrl, setBackgroundUrl] = useState(backgroundUrlVal);
     const [backgroundColorStatus, setBackgroundColorStatus] = useState(backgroundColorStatusVal);
     const [backgroundColor, setBackgroundColor] = useState({
@@ -244,7 +246,8 @@ const IndexSettings = (props) => {
             timerFontFamily:timerFontFamily,
             subscriberFontFamily:subscriberFontFamily,
             timerFontFamilyLabel:timerFontFamilyLabel,
-            subscriberFontFamilyLabel:subscriberFontFamilyLabel
+            subscriberFontFamilyLabel:subscriberFontFamilyLabel,
+            favUrl:favUrl
         }
 
         //console.log(formData);
@@ -324,7 +327,8 @@ const IndexSettings = (props) => {
         timerFontFamily,
         subscriberFontFamily,
         timerFontFamilyLabel,
-        subscriberFontFamilyLabel
+        subscriberFontFamilyLabel,
+        favUrl
     ]);
 
     /**
@@ -833,6 +837,18 @@ const IndexSettings = (props) => {
         setSubscriberFontFamilyLabel(wordData.split(",")[0]);
         setSubscriberFontFamily(val.target.value);
     }, [subscriberFontFamily]);
+
+    /**
+     * Set favicon url.
+     */
+     const setFavUrlHandler = useCallback((favDetails) => {
+        if(favDetails !== 'empty') {
+            setFavUrl(favDetails.originalUrl);
+        } else {
+            setFavUrl('');
+        }
+    }, [favUrl]);
+    
     
     return (
         <React.Fragment>
@@ -860,6 +876,8 @@ const IndexSettings = (props) => {
                     backgroundColorStatus={backgroundColorStatus}
                     setBackgroundColorStatus={setBackgroundColorStatusHandler}
                     activeTheme={activeTheme}
+                    favUrl={favUrl}
+                    setFavUrl={setFavUrlHandler}
                 />
                 <ContentSettings 
                     contentTitle={contentTitle} 

@@ -22,6 +22,11 @@
 <% } %>
 
 <meta http-equiv="X-UA-Compatible" content="chrome=1">
+
+<% if (data.favUrl) { %>
+	<link rel="icon" type="image" href="<%= data.favUrl %>">
+<% } %>
+
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css?family=Lobster|family=Raleway|Baloo+Bhaijaan|Righteous|Acme|Oswald|Poppins|Comfortaa|Dosis|Roboto|Permanent+Marker|Open+Sans|Montserrat|Lato|Dancing+Script|Pacifico|Dokdo" rel="stylesheet">
