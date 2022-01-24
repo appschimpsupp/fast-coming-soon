@@ -8,9 +8,11 @@ const subscriptionSettings = new Router();
 subscriptionSettings.get("/getSubscriptionLists", async (ctx) => {
     
       const mcKey = ctx.query.mckey;
+      var dataCenter = ctx.query.mckey.split('-')[1]; 
       console.log('mcKey := ' + mcKey);
+      console.log('dataCenter := ' + dataCenter);
       /**** MailChimp Code ****/
-      const url = 'https://us14.api.mailchimp.com/3.0/lists/';
+      const url = 'https://'+dataCenter+'.api.mailchimp.com/3.0/lists/';
       const options = {
         method: 'GET',  
         headers: {
@@ -39,7 +41,7 @@ subscriptionSettings.get("/addSubscription", async (ctx) => {
   const shopQuery = ctx.query.shop;
   const email = ctx.query.email;
   let finalStatus = 'fail';
-
+  
   let fname = '';
   let lname = '';
 
@@ -132,9 +134,9 @@ subscriptionSettings.get("/addSubscription", async (ctx) => {
     formData.mckey != ''
   ) {
     console.log('Mailchimp Request');
-
+    var dataCenter = formData.mckey.split('-')[1]; 
     const url = 
-        'https://us14.api.mailchimp.com/3.0/lists/'+formData.mclistOption+'/members';
+        'https://'+dataCenter+'.api.mailchimp.com/3.0/lists/'+formData.mclistOption+'/members';
       const options = {
         method: 'POST',
         headers: {

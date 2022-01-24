@@ -59,7 +59,7 @@ const SubscriptionSettings = (props) => {
      * Set Klaviyo subscription status.
      */
      const getKlaviyoList = () => {
-        console.log('Get Klaviyo lists');
+        //console.log('Get Klaviyo lists');
         setLoadKlBtn(true);
         if(mckey == '') {
             showToast(app, true, 'Invalid API Key');
@@ -74,7 +74,7 @@ const SubscriptionSettings = (props) => {
                   klkey : klkey
                 }
             }).then(function (response) {
-                console.log('klaviyo response : ' + JSON.stringify(response));
+                //console.log('klaviyo response : ' + JSON.stringify(response));
                 if(response.data.data) {
                     //console.log('Mailchimp :- '+ JSON.stringify(response.data.data.lists));
                     let klAudLists = [{label: 'Select from here', value: 'none'}];
@@ -94,7 +94,7 @@ const SubscriptionSettings = (props) => {
                 setLoadKlBtn(false);
             }).catch(error => {
                setLoadKlBtn(false);
-               console.log('klaviyo error : ' + error);
+               //console.log('klaviyo error : ' + error);
                showToast(app, true, 'Please input valid API Key');
             }); 
         }
@@ -104,7 +104,8 @@ const SubscriptionSettings = (props) => {
      * Set mail chimp subscription status.
      */
     const getAudienceList = () => {
-        console.log('Get Mailchimp lists');
+        //('Get Mailchimp lists'); 
+
         setLoadMCBtn(true);
         if(mckey == '') {
             showToast(app, true, 'Invalid API Key');
@@ -119,7 +120,7 @@ const SubscriptionSettings = (props) => {
                   mckey : mckey
                 }
               }).then(function (response) {
-                console.log('Mailchimp :- '+ JSON.stringify(response));
+                //console.log('Mailchimp :- '+ JSON.stringify(response));
                 if(response.data.data.lists && response.status == 200) {
                     
                     let mcAudLists = [{label: 'Select from here', value: 'none'}];
@@ -131,7 +132,7 @@ const SubscriptionSettings = (props) => {
                         }); 
                         return true;
                     });
-                    console.log('mcAudLists :- '+ JSON.stringify(mcAudLists));
+                    //console.log('mcAudLists :- '+ JSON.stringify(mcAudLists));
                     setMCList(mcAudLists);
                     showToast(app, false, 'Mailchimp Audience List Loaded Successfully');
                 } else {
@@ -142,7 +143,7 @@ const SubscriptionSettings = (props) => {
              })
              .catch(error => {
                 showToast(app, true, 'Please input valid API Key');
-                console.log('Mailchimp error : ' + error);
+                //console.log('Mailchimp error : ' + error);
                 setLoadMCBtn(false);
              }); 
         }
