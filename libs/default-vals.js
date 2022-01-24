@@ -2,11 +2,11 @@
 export const currentThemeData = (activeTheme) => {
     let themeOneData = {
         id : 'theme-1',
-        contentTitle: 'Coming Soon',
-        contentFooter : 'Copyright © 2021. All Rights Reserved.',
-        contentDescription : 'Our website is under construction. Stay tuned for something amazing!',
+        contentTitle: '<h1 style="font-family:Open Sans,sans-serif;">Coming Soon</h1>',
+        contentFooter : '<p style="font-family:Open Sans,sans-serif;">Copyright © 2021. All Rights Reserved.</p>',
+        contentDescription : '<h2 style="font-family:Open Sans,sans-serif;">Our website is under construction. Stay tuned for something amazing!</h2>',
         seoTitle: '',
-        backgroundUrl : 'https://ucarecdn.com/9e6aa7c2-1c9e-45dd-8d3f-020c4bf339ed/',
+        backgroundUrl : 'https://ucarecdn.com/f633f2b8-3ed0-47aa-81cc-a2ce605a3fee/',
         socialStatus : true,
         backgroundColor: {
             hue: 40,
@@ -67,11 +67,11 @@ export const currentThemeData = (activeTheme) => {
   
     let themeTwoData = { 
         id : 'theme-2',
-        contentTitle: 'Under Construction',
-        contentFooter : 'Copyright © 2021. All Rights Reserved.',
-        contentDescription : 'Our website is currently undergoing scheduled maintenance. We Should be back shortly. Thank you for your patience.',
+        contentTitle: '<h1 style="font-family:poppins,sans-serif,helvetica;">Under Construction</h1>',
+        contentFooter : '<p style="font-family:poppins,sans-serif,helvetica;">Copyright © 2021. All Rights Reserved.</p>',
+        contentDescription : '<p class="desc" style="font-family:poppins,sans-serif,helvetica;">Our website is currently undergoing scheduled maintenance. We Should be back shortly. Thank you for your patience.</p>',
         seoTitle: '',
-        backgroundUrl : 'https://ucarecdn.com/72307673-024a-47cc-a670-e87b89bb173d/',
+        backgroundUrl : 'https://ucarecdn.com/304cf8d2-cc23-4af7-ab1e-d2a386c14ea1/',
         socialStatus : true,
         backgroundColor: {
             hue: 0,

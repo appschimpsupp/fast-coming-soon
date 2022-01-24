@@ -837,14 +837,14 @@ const IndexSettings = (props) => {
         setSubscriberFontFamilyLabel(wordData.split(",")[0]);
         setSubscriberFontFamily(val.target.value);
     }, [subscriberFontFamily]);
-
-    /**
-     * Set favicon url.
-     */
-     const setFavUrlHandler = useCallback((favDetails) => {
-        if(favDetails !== 'empty') {
+ 
+    /** 
+     * Set favicon url. 
+     */ 
+     const setFavUrlHandler = useCallback((favDetails) => { 
+        if(favDetails !== 'empty') { 
             setFavUrl(favDetails.originalUrl);
-        } else {
+        } else { 
             setFavUrl('');
         }
     }, [favUrl]);

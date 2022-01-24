@@ -142,6 +142,7 @@ a:hover {
     position: relative;
     width: 920px;
     z-index: 1;
+	text-align: center;
 }
 .tempBy{
 	display:block;
@@ -159,6 +160,13 @@ a:hover {
     color: #fff;
     line-height: 36px;
 }
+#Content h1,
+#Content h6,
+#Content h3,
+#Content h4,
+#Content h5 {
+	margin: 35px 0 35px;
+}
 #WindowSlide {
 margin: 0 auto;
 position: relative;
@@ -166,6 +174,9 @@ width: 634px;
 height: 170px;
 display: block;
 overflow: hidden;
+}
+.content > .introduction {
+	display: none!important;
 }
 #Content h3 {
 	text-align: center;
@@ -199,7 +210,6 @@ overflow: hidden;
 	margin-bottom:30px;
 }
 #overlay{ 
-	background: rgba(0, 0, 0, 0.04) url(https://ucarecdn.com/7817ca43-e4d3-45a1-b571-2b2177578e4b/06.png) top left repeat;
 	position: fixed;
 	top: 0px;
 	width: 100%;
@@ -216,7 +226,7 @@ overflow: hidden;
 	<% if (data.backgroundUrl && data.backgroundColorStatus != true ) { %>
 		background: url('<%= data.backgroundUrl %>');
 	<% } else if (data.backgroundColorStatus != true)  { %>
-		background: url('https://ucarecdn.com/f633f2b8-3ed0-47aa-81cc-a2ce605a3fee/mainbg.jpg');
+		background: url('<%= defaultOptions.backgroundUrl %>');
 	<% } %>
 	background-size:cover;
 }
@@ -641,18 +651,21 @@ margin:10px;
 			<% } %>
 		</div>
 		<!-- Title Section -->
-		<% if (data.contentTitle) { %>
-			<h1><%- data.contentTitle %></h1>
+		<% if (data.contentTitle) { %> 
+			<%- data.contentTitle %>
 		<% } else { %>
 			<h1>Coming Soon</h1>
 		<% } %>
-
+		
 		<!-- Description Section -->
 		<% if (data.contentDescription) { %>
-			<h2 class="intro"><%- data.contentDescription %></h2>
+			<div class="content">
+				<%- data.contentDescription %>
+			</div>
 		<% } else { %>
-			<h2 class="intro">Our website is under construction. Stay tuned for something amazing!</h2>
+			<h2>Our website is under construction. Stay tuned for something amazing!</h2>
 		<% } %>
+		
 
 		<!-- Subscription form -->
 		<% if (
@@ -766,7 +779,7 @@ margin:10px;
 	<!--Scripts-->
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 	<script src="https://kit.fontawesome.com/a5f2ce3ffd.js" crossorigin="anonymous"></script>
-	<script type="text/javascript" src="https://ucarecdn.com/53e6cd79-aced-4659-87cc-b2f4fc6851ea/jquerycountdown.js"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
 	<!-- <script type="text/javascript" src="https://ucarecdn.com/5772ba87-4e22-4b29-950c-fc0662df1bb3/global.js"></script> -->
 	<% if (
 			data.subscriptionStatus || 

@@ -168,7 +168,7 @@ const TimeSettings = (props) => {
                                     <select id="PolarisSelect8" className="Polaris-Select__Input" aria-invalid="false" onChange={setTimerFontFamily} >
                                         <option style={{fontFamily:"arial,helvetica,sans-serif"}} value="arial,helvetica,sans-serif">Arial</option>
                                         <option style={{fontFamily:"raleway,sans-serif"}} value="raleway,sans-serif">Raleway</option>
-                                        <option style={{fontFamily:"roboto,sans-serif"}} selected="" value="roboto,sans-serif">Roboto</option>
+                                        <option style={{fontFamily:"roboto,sans-serif"}} value="roboto,sans-serif">Roboto</option>
                                         <option style={{fontFamily:"righteous"}} value="righteous,sans-serif">Righteous</option>
                                         <option style={{fontFamily:"poppins,sans-serif,helvetica"}} value="poppins,sans-serif,helvetica">Poppins</option>
                                         <option style={{fontFamily:"permanent marker,sans-serif"}} value="permanent marker,sans-serif">Permanent Marker</option>

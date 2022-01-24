@@ -74,7 +74,7 @@
 			<% if (data.backgroundUrl && data.backgroundColorStatus != true ) { %>
 				background-image: url(<%= data.backgroundUrl %>)
 			<% } else if (data.backgroundColorStatus != true)  { %>
-				background-image: url('https://ucarecdn.com/304cf8d2-cc23-4af7-ab1e-d2a386c14ea1/bgmain4.jpg');
+				background-image: url('<%= defaultOptions.backgroundUrl %>');
 			<% } %>
 		}
 
@@ -394,14 +394,14 @@
                   <div class="main-content">
 					<!-- Title Section -->
 					<% if (data.contentTitle) { %>
-						<h1><%- data.contentTitle %></h1>
+						<%- data.contentTitle %>
 					<% } else { %>
-						<h1>Coming Soon</h1>
+						<h1>Under Construction</h1>
 					<% } %>
                
 					<!-- Description Section -->
 					<% if (data.contentDescription) { %>
-						<h2 class="intro"><%- data.contentDescription %></h2>
+						<p class="desc"><%- data.contentDescription %></h2>
 					<% } else { %>
 						<p class="desc">Our website is currently undergoing scheduled maintenance. We Should be back shortly. Thank you for your patience.</p>
 					<% } %>
@@ -521,7 +521,7 @@
       <script src="https://ucarecdn.com/598d3815-7518-41f9-95c6-3579086fa650/jquery311min.js"></script>
       <script src="https://ucarecdn.com/81d64856-90eb-4483-b674-f76de060c0b7/scripts.js"></script>
 	  <script src="https://kit.fontawesome.com/a5f2ce3ffd.js" crossorigin="anonymous"></script>
-	  <script type="text/javascript" src="https://ucarecdn.com/53e6cd79-aced-4659-87cc-b2f4fc6851ea/jquerycountdown.js"></script>
+	  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
 
 	  <% if (
 			data.subscriptionStatus || 
