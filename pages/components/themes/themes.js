@@ -14,13 +14,13 @@ const Themes = (props) => {
           id : '1',
           name: 'Active Theme',
           desc: 'Start your business with eye-catching theme.',
-          imgPreviewUrl : 'https://ucarecdn.com/147f6dc8-7035-499f-8df3-2a87f71186f6/theme1prev.png'
+          imgPreviewUrl : 'https://ucarecdn.com/472a2b08-3719-4d80-8fa1-e76643a46f35/theme2prev.png'
         },
         {
           id : '2',
           name: 'Color Theme',
           desc: 'Start your business with eye-catching theme.',
-          imgPreviewUrl : 'https://ucarecdn.com/472a2b08-3719-4d80-8fa1-e76643a46f35/theme2prev.png'
+          imgPreviewUrl : 'https://ucarecdn.com/147f6dc8-7035-499f-8df3-2a87f71186f6/theme1prev.png'
         }
     ]
     
