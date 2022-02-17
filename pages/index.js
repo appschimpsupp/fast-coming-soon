@@ -14,9 +14,10 @@ import Faqs from './menu/faq';
 import Support from './menu/get-support';
 import InstallInstruction from './menu/install-instructions';
 import { Redirect } from '@shopify/app-bridge/actions';
+import TawkTo from 'tawkto-react';
 
 export default function Index() {
-  // NextJS Router.
+  // NextJS Router. 
   const router = useRouter();
 
   let appExtUID = '680f0474-fab5-46c4-8a22-4be281855d7f';
@@ -32,6 +33,15 @@ export default function Index() {
       newContext: false,
     });
   }
+   
+  // Tawk chat widget.
+  useEffect(() => {
+    var tawk = new TawkTo('6208bc01b9e4e21181bed872', '1frp1sqa4');
+    tawk.onStatusChange((status) => 
+    {
+        // console.log(status)
+    })
+  }, [])
 
   const [currPage, setCurrPage] = useState('dashboard');
   const [planCheck, setPlanCheck] = useState(false);

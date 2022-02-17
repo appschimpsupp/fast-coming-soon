@@ -21,6 +21,18 @@ const Themes = (props) => {
           name: 'Color Theme',
           desc: 'Start your business with eye-catching theme.',
           imgPreviewUrl : 'https://ucarecdn.com/147f6dc8-7035-499f-8df3-2a87f71186f6/theme1prev.png'
+        },
+        {
+          id : '3',
+          name: 'Purple Animated Theme',
+          desc: 'Start your business with eye-catching theme.',
+          imgPreviewUrl : 'https://ucarecdn.com/067330f0-dede-4677-9ae9-cbb1bd060327/theme3prev.png'
+        },
+        {
+          id : '4',
+          name: 'Fruits & Vegetable Theme',
+          desc: 'Start your business with eye-catching theme.',
+          imgPreviewUrl : 'https://ucarecdn.com/14801314-17c9-4214-a7f3-2b5c0547370c/theme4prev.png'
         }
     ]
     

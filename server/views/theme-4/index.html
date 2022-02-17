@@ -1,0 +1,671 @@
+
+<!doctype html>
+<html lang="en">
+    <head>
+        <!-- Required meta tags -->
+        <% if (data.seoTitle) { %>
+            <title><%= data.seoTitle %></title>
+        <% } else { %>
+            <title>Coming Soon</title>
+        <% } %>
+            <meta charset="utf-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <% if (data.seoDescription) { %>
+            <meta name="description" content="<%= data.seoDescription %>">
+        <% } else { %>
+            <meta name="description" content="<%= shop %>">
+        <% } %>
+        <% if (data.seoMetatags) { %>
+            <meta name="keywords" content="<%= data.seoMetatags %>">
+        <% } %>
+        
+        <meta http-equiv="X-UA-Compatible" content="chrome=1">
+        
+        <% if (data.favUrl) { %>
+            <link rel="icon" type="image" href="<%= data.favUrl %>">
+        <% } %>
+        
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css?family=Lobster|family=Raleway|Baloo+Bhaijaan|Righteous|Acme|Oswald|Poppins|Comfortaa|Dosis|Roboto|Permanent+Marker|Open+Sans|Montserrat|Lato|Dancing+Script|Pacifico|Dokdo" rel="stylesheet">
+        
+        <!-- <link rel="stylesheet" type="text/css" href="https://ucarecdn.com/d7ccb89e-6fcd-400f-b67f-6ca567a118f4/styles.css"> -->
+        
+        <% if (data.googleAna) { %>
+         <!-- Global site tag (gtag.js) - Google Analytics -->
+         <script async src="https://www.googletagmanager.com/gtag/js?id=<%= data.googleAna %>"></script>
+         <script>
+           window.dataLayer = window.dataLayer || [];
+           function gtag(){dataLayer.push(arguments);}
+           gtag('js', new Date());
+           gtag('config', '<%= data.googleAna %>');
+         </script>
+         <!-- Global site tag ends -->
+        <% } %>
+         
+        <% if (data.fbPixel) { %>
+         <!-- Facebook Pixel Code -->
+         <script>
+           !function(f,b,e,v,n,t,s)
+           {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+           n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+           if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+           n.queue=[];t=b.createElement(e);t.async=!0;
+           t.src=v;s=b.getElementsByTagName(e)[0];
+           s.parentNode.insertBefore(t,s)}(window, document,'script',
+           'https://connect.facebook.net/en_US/fbevents.js');
+           fbq('init', '<%= data.fbPixel %>');
+           fbq('track', 'PageView');
+         </script>
+         <noscript>
+           <img height="1" width="1" style="display:none" 
+                src="https://www.facebook.com/tr?id=<%= data.fbPixel %>&ev=PageView&noscript=1"/>
+         </noscript>
+         <!-- End Facebook Pixel Code -->
+         <% } %>
+
+        <!-- Bootstrap Min CSS -->
+        <link rel="stylesheet" href="https://ucarecdn.com/dab9a038-7bde-4293-b980-a5c676eb2071/bootstrapmin.css">
+        <!-- Animate Min CSS -->
+        <link rel="stylesheet" href="https://ucarecdn.com/0d20ee5b-7984-4a5a-a2dc-6204f11c5112/animatemin.css">
+        <!-- FontAwesome Min CSS -->
+        <link rel="stylesheet" href="https://ucarecdn.com/0d52c37d-dae1-4de5-92b6-9ce46a5bb0bd/fontawesomemin.css">
+        <!-- Style Min CSS -->
+        <link rel="stylesheet" href="https://ucarecdn.com/1ff54e85-5bb8-47a9-9f9e-286d408d3fd7/style.css">
+        <!-- Responsive CSS -->
+        <!-- <link rel="stylesheet" href= "https://ucarecdn.com/8f5e6918-efff-40ac-b1d5-72c69ea71520/responsive.css"> -->
+
+        <!-- <title>Emilono - Coming Soon Templates</title> -->
+
+        <link rel="icon" type="image/png" href="https://ucarecdn.com/ccaf5726-972d-4f0f-b383-75267d80ebbc/favicon.png">
+
+
+
+
+        <style>
+            .logo {
+                width: 200px;
+                text-align: left;
+            }
+            .tempBy p {
+                margin-top: 5px;
+            }
+            .main-banner {
+                /* Set background color */
+                <% if(data.backgroundColorStatus == true) { %>
+                    background-color: hsl(<%= data.backgroundColor.hue %>, <%= data.backgroundColor.saturation * 100 %>%, <%= data.backgroundColor.brightness * 100 %>%)!important;
+                <% } else { %>
+                    background-color: #cecece;
+                <% } %>
+    
+                <% if (data.backgroundUrl && data.backgroundColorStatus != true ) { %>
+                    background: url('<%= data.backgroundUrl %>');
+                <% } else if (data.backgroundColorStatus != true)  { %>
+                    background: url('<%= defaultOptions.backgroundUrl %>');
+                <% } %>
+    
+                background-size: cover;
+            }
+            .subscribe-form {
+                position: relative;
+                margin-left: auto;
+                margin-right: auto;
+                margin-top: 40px;
+            }
+            .subscribe-form .form__button {
+                <% if(data.emailBtnBackColor) { %>
+                    background-color: hsl(<%= data.emailBtnBackColor.hue %>, <%= data.emailBtnBackColor.saturation * 100 %>%, <%= data.emailBtnBackColor.brightness * 100 %>%)!important;
+                <% } else { %>
+                    background-color: hsl(<%= defaultOptions.emailBtnBackColor.hue %>, <%= defaultOptions.emailBtnBackColor.saturation * 100 %>%, <%= defaultOptions.emailBtnBackColor.brightness * 100 %>%)!important;
+                <% } %>
+                padding: 10px 30px 10px 30px;
+                border: none;
+                height: 48px;
+                border-radius: 5px;
+                border-radius: 5rem;
+                font-size: 16px;
+                <% if(data.emailBtnColor) { %>
+                    color: hsl(<%= data.emailBtnColor.hue %>, <%= data.emailBtnColor.saturation * 100 %>%, <%= data.emailBtnColor.brightness * 100 %>%)!important;
+                <% } else { %>
+                    color: hsl(<%= defaultOptions.emailBtnColor.hue %>, <%= defaultOptions.emailBtnColor.saturation * 100 %>%, <%= defaultOptions.emailBtnColor.brightness * 100 %>%)!important;
+                <% } %>
+                
+                cursor: pointer;
+                position: relative;
+                /* display: inline-flex; */
+                align-items: center;
+                <% if(data.subscriberFontFamily) { %>
+                    font-family: <%= data.subscriberFontFamily %>!important;
+                <% } else { %>
+                    font-family: <%= defaultOptions.subscriberFontFamily %>!important;
+                <% } %>
+            }
+            .subscribe-form .form__email {
+        padding: 15px 18px;
+        border-radius: 5px;
+        border-radius: 5rem;
+        border: 1px solid #CAD3DB;
+        width: 260px;
+        font-size: 14px;
+        margin: 0 12px 0 2px;
+        text-transform: inherit!important;
+        <% if(data.inputTxtColor) { %>
+            color: hsl(<%= data.inputTxtColor.hue %>, <%= data.inputTxtColor.saturation * 100 %>%, <%= data.inputTxtColor.brightness * 100 %>%)!important;
+        <% } else { %>
+            color: hsl(<%= defaultOptions.inputTxtColor.hue %>, <%= defaultOptions.inputTxtColor.saturation * 100 %>%, <%= defaultOptions.inputTxtColor.brightness * 100 %>%)!important;
+        <% } %>
+        
+        <% if(data.inputBackColor) { %>
+            background-color: hsl(<%= data.inputBackColor.hue %>, <%= data.inputBackColor.saturation * 100 %>%, <%= data.inputBackColor.brightness * 100 %>%)!important;
+        <% } else { %>
+            background-color: hsl(<%= defaultOptions.inputBackColor.hue %>, <%= defaultOptions.inputBackColor.saturation * 100 %>%, <%= defaultOptions.inputBackColor.brightness * 100 %>%)!important;
+        <% } %>
+        <% if(data.subscriberFontFamily) { %>
+            font-family: <%= data.subscriberFontFamily %>!important;
+        <% } else { %>
+            font-family: <%= defaultOptions.subscriberFontFamily %>!important;
+        <% } %>	
+    }
+            #timer div,
+            #timer div span {
+                <% if(data.timerColor) { %>
+                    color: hsl(<%= data.timerColor.hue %>, <%= data.timerColor.saturation * 100 %>%, <%= data.timerColor.brightness * 100 %>%)!important;
+                <% } else { %>
+                    color: hsl(<%= defaultOptions.timerColor.hue %>, <%= defaultOptions.timerColor.saturation * 100 %>%, <%= defaultOptions.timerColor.brightness * 100 %>%)!important;
+                <% } %>
+                <% if(data.timerFontFamily) { %>
+                    font-family: <%= data.timerFontFamily %>!important;
+                <% } else { %>
+                    font-family: <%= defaultOptions.timerFontFamily %>!important;
+                <% } %>
+            }
+            /*** Social Icons Styling ***/
+    .footer {
+        position: absolute;
+        bottom: 20px;
+    }
+    .icon-link .fa {
+        font-size: 22px;
+    }
+    <% if (
+        data.socialDefaultColorStatus || 
+        ( 
+            data == 'none' && 
+            defaultOptions.socialDefaultColorStatus
+        )
+    ) { %>
+    .icon-link .fa {
+        color: #fff;
+    }
+    .icon-link.fill.facebook {
+        background-color: #3b5998;
+    }
+    .icon-link.fill.linkedin {
+        background-color: #007bb6;
+    }
+    .icon-link.fill.twitter {
+        background-color: #00aced;
+    }
+    .icon-link.fill.google-plus {
+        background-color: #dd4b39;
+    }
+    .icon-link.fill.youtube {
+        background-color: #df1c31;
+    }
+    .icon-link.fill.pinterest {
+        background-color: #b81621;
+    }
+    .icon-link.fill.envelope {
+        background-color: #333;
+    }
+    
+    <% } else { %>
+        <% if(data.socialIconBackColor) { %>
+            .social-icons a {
+                background-color: hsl(<%= data.socialIconBackColor.hue %>, <%= data.socialIconBackColor.saturation * 100 %>%, <%= data.socialIconBackColor.brightness * 100 %>%)!important;
+            }
+        <% } %>
+    
+        <% if(data.socialIconColor) { %>
+            .social-icons a {
+                color: hsl(<%= data.socialIconColor.hue %>, <%= data.socialIconColor.saturation * 100 %>%, <%= data.socialIconColor.brightness * 100 %>%)!important;
+            }
+        <% } %>
+    <% } %>
+    .icon-link.round {
+        border-radius: 50%;
+        margin-left: 0;
+    }
+    h2 {
+        font-size: 3rem;
+    }
+    .icon-link {
+        width: 45px;
+        height: 45px;
+        background-color: #666;
+        line-height: 51px;
+        text-align: center;
+        vertical-align: middle;
+        display: inline-block;
+        cursor: pointer;
+        outline: none;
+        margin: 5px;
+        box-sizing: content-box;
+        transition: transform .2s; /* Animation */
+    }
+    .subscribe-form .form {
+        width: 896px;
+    }
+    .loading-bar {
+	display: none;
+	position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    left: 0;
+    right: 0;
+    text-align: center;
+    top: -20px;
+    width: 90px;
+}
+    .icon-link:hover {
+      transform: scale(1.2); 
+    }
+        @media(max-width:600px){
+            #timer div::before,
+            #timer div::after,
+            #timer div {
+                background: transparent;
+            }
+            #subscribe input[type="button"]{
+                margin-top:10px;
+            }
+            .subscribe-form .form__email {
+                width:80%;
+            }
+        }
+        
+        
+        @media(max-width:800px) {
+            .subscribe-form .form {
+                width: 100%;
+                text-align: center;
+            }
+            .subscribe-form .form__email {
+                width: 100%;
+                margin: 11px 0;
+            }
+            .logo {
+                text-align: center;
+                margin: 0 auto;
+            }
+            #timer {
+                text-align: center;
+            }
+            .footer {
+                position: absolute;
+                margin-left: auto;
+                margin-right: auto;
+                left: 0;
+                right: 0;
+                text-align: center;
+            }
+            .main-banner-content p {
+                max-width: 100%;
+                text-align: center;
+            }
+        }
+        @media(max-width:640px) {
+            .subscribe-form .form,
+            .main-banner-content {
+                width: 90%;
+                text-align: center;
+                margin: 0 auto;
+            }
+        }
+        @media(max-width:420px){
+            .logo {
+                width: 50%;
+            }
+            .footer {
+                bottom: 0;
+            }
+            .subscribe-form {
+                margin-top: 10px;
+            }
+            .count-down-timer #timer div {
+                margin: 0 11px;
+            }
+            .count-down-timer {
+                transform: scale(0.9);
+            }
+        }
+    </style>
+    </head>
+
+    <body>
+
+        <!-- Preloader -->
+        <!-- <div class="preloader">
+            <div class="loader">
+                <div class="loader-outter"></div>
+                <div class="loader-inner"></div>
+            </div>
+        </div> -->
+        <!-- End Preloader -->
+
+        <!-- Navbar Area -->
+        <div class="navbar-area">
+            <div class="container">
+                <div class="navbar-menu">
+                    	<!-- Logo Section -->
+                        <% if (data.logoUrl) { %>
+                            <div class="logo">
+                                <img src="<%= data.logoUrl %>" />
+                            </div>
+                        <% } %>
+		</div>
+                </div>
+            </div>
+      
+        <!-- End Navbar Area -->
+
+        <!-- Start Main Banner -->
+        <div class="main-banner">
+            <div class="d-table">
+                <div class="d-table-cell">
+                    <div class="container">
+                        <div class="row align-items-center">
+                            <div class="col-lg-6 col-md-12">
+                                <div class="count-down-timer">
+                                    <% if (data.timerStatus && data.timerDate) { %>
+                                        <div id="timer">
+                                            <div id="days"></div>
+                                            <div id="hours"></div>
+                                            <div id="minutes"></div>
+                                            <div id="seconds"></div>
+                                        </div>
+                                    <% } %>
+                                </div>
+                                        <!-- title -->
+                                <div class="main-banner-content">
+                                    <% if (data.contentTitle) { %> 
+                                        <%- data.contentTitle %>
+                                    <% } else { %>
+                                        <h1>Coming Soon</h1>
+                                    <% } %>
+                                            <!-- Description -->
+                                    <% if (data.contentDescription) { %>
+                                        <div class="content">
+                                            <%- data.contentDescription %>
+                                        </div>
+                                    <% } else { %>
+                                        <p>Our website is under construction. Stay tuned for something amazing!</p>
+                                    <% } %>
+                                        
+
+                                    <!-- Subscription form -->
+                                    <% if (
+			data.subscriptionStatus || 
+				( 
+					data == 'none' && 
+					defaultOptions.subscriptionStatus
+				)
+			) { %>
+			<div class="subscribe subscribe-form">
+				<!-- <h2 class="subscribe__title">Let's keep in touch</h2> -->
+				<div class="form">
+					<% if (
+							data.nameFieldStatus || 
+								( 
+									data == 'none' && 
+									defaultOptions.nameFieldStatus
+								)
+					) { %>
+						<% if (data.namePlaceholder) { %>
+							<input type="text" class="form__email name-field" placeholder="<%= data.namePlaceholder %>" />
+						<% } else { %>
+							<input type="text" class="form__email name-field" placeholder="<%= defaultOptions.namePlaceholder %>" />
+						<% } %>	
+					<% } %>
+
+					<% if (data.emailPlaceholder) { %>
+						<input 
+							type="email" 
+							class="form__email email-field" 
+							placeholder="<%= data.emailPlaceholder %>" 
+							id="email-field"
+							required="required"
+						/>
+					<% } else { %>
+						<input 
+							type="email" 
+							class="form__email email-field" 
+							placeholder="<%= defaultOptions.emailPlaceholder %>" 
+							id="email-field"
+							required="required"
+						/>
+					<% } %>
+					
+					<button class="form__button" id="email-submit">
+						<img class="loading-bar" src="https://ucarecdn.com/148c7211-6dbe-49c6-9b3a-13a124babd3f/Eclipse1s200px.svg" />
+						<% if (data.emailBtnTxt) { %>
+							<span><%= data.emailBtnTxt %></span>
+						<% } else { %>
+							<span><%= defaultOptions.emailBtnTxt %></span>
+						<% } %>
+						
+					</button>
+				</div>
+			</div>
+		<% } %>
+            <div class="footer">
+               <!-- End Main Banner -->
+               <% if (data.socialStatus) { %>
+                <div class="social-icons">
+                    <% if (data.socialFacebook) { %>
+                        <a target="_blank" href="<%= data.socialFacebook %>" class="icon-link round facebook fill"><i class="fa fa-facebook"></i></a>
+                    <% } %>
+    
+                    <% if (data.socialLinkedIn) { %>
+                        <a target="_blank" href="<%= data.socialLinkedIn %>" class="icon-link round linkedin fill"><i class="fa fa-linkedin"></i></a>
+                    <% } %>
+    
+                    <% if (data.socialTwitter) { %>
+                        <a target="_blank" href="<%= data.socialTwitter %>" class="icon-link round twitter fill"><i class="fa fa-twitter"></i></a>
+                    <% } %>
+    
+                    <% if (data.socialGooglePlus) { %>
+                        <a target="_blank" href="<%= data.socialGooglePlus %>" class="icon-link round google-plus fill"><i class="fa fa-google-plus"></i></a>
+                    <% } %>
+    
+                    <% if (data.socialYoutube) { %>
+                        <a target="_blank" href="<%= data.socialYoutube %>" class="icon-link round youtube fill"><i class="fa fa-youtube"></i></a>
+                    <% } %>
+    
+                    <% if (data.socialPinterest) { %>
+                        <a target="_blank" href="<%= data.socialPinterest %>" class="icon-link round pinterest fill"><i class="fa fa-pinterest"></i></a>
+                    <% } %>
+    
+                    <% if (data.socialEmail) { %>
+                        <a href="mailto:<%= data.socialEmail %>" class="icon-link round envelope fill"><i class="fa fa-envelope"></i></a>
+                    <% } %>
+                
+            <% } %>
+            <% if (data.contentFooter) { %>
+                <span class="tempBy"><%- data.contentFooter %></span>
+            <% } else { %>
+                <span class="tempBy">Copyright © 2021. All Rights Reserved.</span>
+            <% } %>
+		</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+ 
+        <!-- jQuery Min JS -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+        <!-- Popper Min JS -->
+        <!-- <script src="https://ucarecdn.com/314184ac-04cd-4acb-9f5e-ebd5d89194ca/poppermin.js"></script> -->
+        
+        <!-- Bootstrap Min JS -->
+        <script src="https://ucarecdn.com/8676dd25-a538-4d25-977c-b38dd8757ed7/bootstrapmin.js"></script>
+        
+        <!-- WOW Min JS -->
+        <!-- <script src="https://ucarecdn.com/61c1217b-0163-4a70-a4b3-76bef29c4a6c/wowmin.js"></script> -->
+        
+        <!-- Main JS -->
+        <!-- <script src="https://ucarecdn.com/3af50cc6-0681-40d0-a82c-261e6260513b/main.js"></script> -->
+        <div id="overlay"></div>
+
+	<!--Scripts-->
+	
+	<script src="https://kit.fontawesome.com/a5f2ce3ffd.js" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.countdown/2.2.0/jquery.countdown.min.js"></script>
+	<!-- <script type="text/javascript" src="https://ucarecdn.com/5772ba87-4e22-4b29-950c-fc0662df1bb3/global.js"></script> -->
+	<% if (
+			data.subscriptionStatus || 
+				( 
+					data == 'none' && 
+					defaultOptions.subscriptionStatus
+				)
+			) { %>
+	<script>
+		$( function() {
+			
+			$('#email-submit').click(function(){ 
+				var email = $('.email-field').val();
+				loadingBarStatus('show');
+				if(email) {
+					var isEmailValid = ValidateEmail(email);
+					if(isEmailValid == true) {
+						var name = $('.name-field').val();
+						submitEmailForm(email, name);
+					} else {
+						loadingBarStatus('hide');
+					}
+				} else {
+					alert('Please input your email');
+					loadingBarStatus('hide');
+				}
+			});
+			
+			/**
+			* Subscribe email form. 
+			*/
+			function submitEmailForm(email, name) {
+				fetch('<%= host %>/addSubscription?shop=<%= shop %>&email=' + email + '&name=' + name)
+				.then(function(res){ 
+					return res.json(); 
+				})
+				.then(function(data){ 
+					console.log(JSON.stringify( data ));
+					if(data.data == 'success') {
+						<% if (data.successMsg) { %>
+							alert('<%= data.successMsg %>');
+						<% } else { %>
+							alert('<%= defaultOptions.successMsg %>');
+						<% } %>
+						
+					} else {
+						<% if (data.failMsg) { %>
+							alert('<%= data.failMsg %>');
+						<% } else { %>
+							alert('<%= defaultOptions.failMsg %>');
+						<% } %>
+					}
+					loadingBarStatus('hide');
+				})
+				.catch((error) => {
+					<% if (data.failMsg) { %>
+						alert('<%= data.failMsg %>');
+					<% } else { %>
+						alert('<%= defaultOptions.failMsg %>');
+					<% } %>
+					loadingBarStatus('hide');
+				});
+			}
+
+			/**
+			* Validate email. 
+			*/
+			function ValidateEmail(email) {
+				if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(email)) {
+					return (true)
+				}
+				alert("You have entered an invalid email address!")
+				return (false)
+			}
+
+			/**
+			* Show loading bar.  
+			*/
+			function loadingBarStatus(status) {
+				if(status == 'show') {
+					$('.loading-bar').css('display','block');
+					$('#email-submit span').css('opacity', 0);
+				}
+				if(status == 'hide') {
+					$('.loading-bar').css('display','none');
+					$('#email-submit span').css('opacity', 1);
+				}
+			}
+
+		});
+	</script>
+	<% } %>
+
+	<!-- Set Timer -->		
+			<% if (data.timerStatus && data.timerDate) { %>
+				<script>
+					$( function() {
+					//makeTimer();
+
+					// Create timer.
+					function makeTimer() {
+						//		var endTime = new Date("29 April 2018 9:56:00 GMT+01:00");
+						<% if (data.selectedTimezone.value) { %>
+							var timeString = '<%= data.selectedTimezone.label %>';
+							var finalTimeString = timeString.match(/\(([^)]+)\)/)[1];
+							let today = new Date('<%= data.timerDate %>');
+    						let dateValue = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate();
+							var endTime = new Date(dateValue + " <%= data.selectedTime %> " + finalTimeString);
+						<% } else { %>
+							var timeString = '<%= defaultOptions.selectedTimezone.label %>';
+							var finalTimeString = timeString.match(/\(([^)]+)\)/)[1];
+							let today = new Date('<%= data.timerDate %>');
+    						let dateValue = today.getFullYear()+'/'+(today.getMonth()+1)+'/'+today.getDate()
+							var endTime = new Date(dateValue + " <%= data.selectedTime %> " + finalTimeString);	
+						<% } %>	
+								
+						endTime = (Date.parse(endTime) / 1000);
+
+						var now = new Date();
+						now = (Date.parse(now) / 1000);
+
+						var timeLeft = endTime - now;
+
+						var days = Math.floor(timeLeft / 86400); 
+						var hours = Math.floor((timeLeft - (days * 86400)) / 3600);
+						var minutes = Math.floor((timeLeft - (days * 86400) - (hours * 3600 )) / 60);
+						var seconds = Math.floor((timeLeft - (days * 86400) - (hours * 3600) - (minutes * 60)));
+
+						if (hours < "10") { hours = "0" + hours; }
+						if (minutes < "10") { minutes = "0" + minutes; }
+						if (seconds < "10") { seconds = "0" + seconds; }
+
+						$("#days").html(days + "<span>Days</span>");
+						$("#hours").html(hours + "<span>Hours</span>");
+						$("#minutes").html(minutes + "<span>Minutes</span>");
+						$("#seconds").html(seconds + "<span>Seconds</span>");		
+					}
+
+					setInterval(function() { makeTimer(); }, 1000);
+					});
+			</script>
+		<% } %>
+</body>
+</html>

@@ -1,4 +1,5 @@
 import {Banner, SkeletonBodyText} from '@shopify/polaris';
+import React, {useState, useCallback} from 'react';
 
 const Password = (props) => {
     const { shopData, shop } = props;

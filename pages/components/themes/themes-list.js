@@ -76,7 +76,7 @@ const ThemeList = (props) => {
         </MediaCard>;
     
     return (
-        <Layout.Section oneThird>
+        <Layout.Section oneHalf>
             {outputTheme}
         </Layout.Section>
     );

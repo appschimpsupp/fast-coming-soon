@@ -16,7 +16,7 @@ const IndexSettings = (props) => {
     const { 
         activeSettingHandler, 
         appSettings, 
-        shop, 
+        shop,  
         axiosinstance, 
         activeTheme, 
         app,
